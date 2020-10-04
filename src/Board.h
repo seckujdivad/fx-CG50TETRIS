@@ -20,7 +20,7 @@ private:
 	int m_border_width;
 
 public:
-	Board(int board_x, int board_y, int tile_x, int tile_y, int board_start_x, int board_start_y, int border_width = 3);
+	Board(int board_x, int board_y, int tile_x, int tile_y, int board_start_x, int board_start_y, int border_width = 1);
 
 	void SetTile(int x, int y, TileType type);
 	TileType GetTile(int x, int y) const;

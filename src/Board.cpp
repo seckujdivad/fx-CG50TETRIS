@@ -105,8 +105,10 @@ void Board::DrawTile(int x, int y, bool copy_vram) const
 		{
 			color_t colour;
 			if (
-				((start_x <= draw_x) && (draw_x <= start_x + this->m_border_width))
+				((start_x <= draw_x) && (draw_x < start_x + this->m_border_width))
 				|| ((end_x - this->m_border_width <= draw_x) && (draw_x <= end_x))
+				|| ((start_y <= draw_y) && (draw_y < start_y + this->m_border_width))
+				|| ((end_y - this->m_border_width <= draw_y) && (draw_y <= end_y))
 			)
 			{
 				colour = secondary_colour;
