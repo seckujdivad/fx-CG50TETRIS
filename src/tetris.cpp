@@ -6,6 +6,8 @@
  
 int main()
 {
+	Bdisp_EnableColor(1);
+
 	int key;
 	 
 	Bdisp_AllClr_VRAM();
