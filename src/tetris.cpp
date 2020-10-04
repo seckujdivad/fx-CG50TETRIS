@@ -1,5 +1,7 @@
 #include <fxcg/display.h>
 #include <fxcg/keyboard.h>
+
+#include "utilities.h"
  
 int main()
 {
