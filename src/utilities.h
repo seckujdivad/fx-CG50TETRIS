@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void* operator new(size_t size);
-void* operator new[](size_t size);
+void* operator new[](size_t size); //currently unusable
 
 void operator delete(void* pointer);
 void operator delete[](void* pointer);
