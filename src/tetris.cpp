@@ -3,6 +3,7 @@
 
 #include "utilities.h"
 #include "Board.h"
+#include "Tetronimo.h"
  
 int main()
 {
@@ -17,6 +18,9 @@ int main()
 	board.SetTile(0, 0, TileType::Blue);
 	board.SetTile(0, 1, TileType::Red);
 	board.SetTile(9, 9, TileType::Green);
+
+	Tetronimo tetronimo(3, 3, &board, TileType::Blue, GetTetronimoType());
+
 	Bdisp_PutDisp_DD();
 
 	while (1) {
