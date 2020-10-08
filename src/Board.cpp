@@ -12,8 +12,12 @@ Board::Board(int board_x, int board_y, int tile_x, int tile_y, int board_start_x
 	m_tile_y(tile_y),
 	m_border_width(border_width)
 {
-	//this->m_tiles = new TileType [board_x * board_y];
-	this->m_tiles = static_cast<TileType*>(sys_malloc(sizeof(TileType) * board_x * board_y)); //I would much rather use new [], but it seems custom new [] is more complicated than custom new
+	this->m_tiles = new TileType [board_x * board_y];
+}
+
+Board::~Board()
+{
+	delete[] this->m_tiles;
 }
 
 void Board::SetTile(int x, int y, TileType type)
