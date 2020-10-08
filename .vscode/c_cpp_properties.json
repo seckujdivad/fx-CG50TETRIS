@@ -13,7 +13,7 @@
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-arm",
             "compilerArgs": [
-                "-lfxcg -lc -lgcc"
+                "-nostdlib -lfxcg -lc -lgcc -ffunction-sections -fdata-sections -fno-exceptions"
             ]
         }
     ],
