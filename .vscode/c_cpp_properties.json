@@ -3,12 +3,12 @@
         {
             "name": "fx-CG50",
             "includePath": [
-                "C:/PrizmSDK-win-0.5.1/include/**",
+                "C:/PrizmSDK-win-0.5/include/**",
                 "${workspaceFolder}/src/**"
             ],
             "defines": [],
             "windowsSdkVersion": "10.0.18362.0",
-            "compilerPath": "C:/PrizmSDK-win-0.5.1/bin/make.exe",
+            "compilerPath": "C:/PrizmSDK-win-0.5/bin/make.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-arm",
