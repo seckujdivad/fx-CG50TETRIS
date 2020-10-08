@@ -1,25 +1,34 @@
 #include "utilities.h"
 
-#include <fxcg/heap.h>
-
-void* __gxx_personality_v0;
+#include <fxcg/rtc.h>
 
 void* operator new(size_t size)
 {
-    return sys_malloc(size);
-}
-
-void* operator new[](size_t size)
-{
-    return sys_malloc(size);
+    return malloc(size);
 }
 
 void operator delete(void* pointer)
 {
-    sys_free(pointer);
+    if (pointer != nullptr)
+	{
+		free(pointer);
+	}
 }
 
-void operator delete[](void* pointer)
+void operator delete(void* pointer, size_t size)
 {
-    sys_free(pointer);
+	if (pointer != nullptr)
+	{
+		free(pointer);
+	}
+}
+
+int RTC_rand(int ceil)
+{
+    return RTC_GetTicks() % ceil;
+}
+
+int RTC_rand(int floor, int ceil)
+{
+    return floor + RTC_rand(ceil - floor);
 }
