@@ -8,26 +8,28 @@
 int main()
 {
 	Bdisp_EnableColor(1);
-
-	int key;
-	 
 	Bdisp_AllClr_VRAM();
-	Print_OS("Press EXE to exit", 0, 0);
 
 	Board board(10, 10, 10, 10, 10, 30);
+	board.SetIncrementalDraw(true);
 	board.SetTile(0, 0, TileType::Blue);
 	board.SetTile(0, 1, TileType::Red);
 	board.SetTile(9, 9, TileType::Green);
 
-	Tetronimo tetronimo(3, 3, &board, TileType::Blue, GetTetronimoType());
+	Tetronimo* tetronimo = new Tetronimo(3, 3, &board, TileType::Blue, GetTetronimoType());
 
-	Bdisp_PutDisp_DD();
+	Bdisp_PutDisp_DD(); //copy vram to lcd
 
-	while (1) {
+	int key;
+	while (true)
+	{
 		GetKey(&key);
+		if (key == KEY_CTRL_EXE)
+		{
+			tetronimo->Erase();
+			delete tetronimo;
 
-		if (key == KEY_CTRL_EXE) {
-			break;
+			tetronimo = new Tetronimo(3, 3, &board, TileType::Blue, GetTetronimoType());
 		}
 	}
  
