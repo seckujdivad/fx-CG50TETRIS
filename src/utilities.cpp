@@ -7,7 +7,20 @@ void* operator new(size_t size)
     return malloc(size);
 }
 
+void* operator new[](size_t size)
+{
+    return malloc(size);
+}
+
 void operator delete(void* pointer)
+{
+    if (pointer != nullptr)
+	{
+		free(pointer);
+	}
+}
+
+void operator delete[](void* pointer)
 {
     if (pointer != nullptr)
 	{
