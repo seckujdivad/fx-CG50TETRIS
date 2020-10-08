@@ -1,6 +1,6 @@
 #include "Tetronimo.h"
 
-#include <stdlib.h>
+#include "utilities.h"
 
 #include "Board.h"
 
@@ -72,16 +72,67 @@ int Tetronimo::GetY() const
 
 TetronimoLayout Tetronimo::GetTetronimo(int x, int y, Direction rotation) const
 {
-	if (this->GetType() == TetronimoType::O)
+	if (this->GetType() == TetronimoType::I)
 	{
-		return {
-			false, false, false, false,
-			false, true, true, false,
-			false, true, true, false,
-			false, false, false, false
-		};
+		if ((this->GetRotation() == Direction::Up) || (this->GetRotation() == Direction::Down))
+		{
+			return {
+				0, 0, 1, 0,
+				0, 0, 1, 0,
+				0, 0, 1, 0,
+				0, 0, 1, 0
+			};
+		}
+		else
+		{
+			return {
+				0, 0, 0, 0,
+				1, 1, 1, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+			};
+		}
 	}
-	else
+	else if (this->GetType() == TetronimoType::T)
+	{
+		if (this->GetRotation() == Direction::Up)
+		{
+			return {
+				0, 1, 0, 0,
+				1, 1, 1, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+			};
+		}
+		else if (this->GetRotation() == Direction::Right)
+		{
+			return {
+				0, 1, 0, 0,
+				0, 1, 1, 0,
+				0, 1, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if (this->GetRotation() == Direction::Down)
+		{
+			return {
+				0, 0, 0, 0,
+				1, 1, 1, 0,
+				0, 1, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if (this->GetRotation() == Direction::Left)
+		{
+			return {
+				0, 1, 0, 0,
+				1, 1, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+	}
+	else if (this->GetType() == TetronimoType::O)
 	{
 		return {
 			0, 0, 0, 0,
@@ -90,6 +141,133 @@ TetronimoLayout Tetronimo::GetTetronimo(int x, int y, Direction rotation) const
 			0, 0, 0, 0
 		};
 	}
+	else if (this->GetType() == TetronimoType::J)
+	{
+		if (this->GetRotation() == Direction::Up)
+		{
+			return {
+				0, 1, 0, 0,
+				0, 1, 0, 0,
+				1, 1, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if (this->GetRotation() == Direction::Right)
+		{
+			return {
+				1, 0, 0, 0,
+				1, 1, 1, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if (this->GetRotation() == Direction::Down)
+		{
+			return {
+				0, 1, 1, 0,
+				0, 1, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if (this->GetRotation() == Direction::Left)
+		{
+			return {
+				0, 0, 0, 0,
+				1, 1, 1, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 0
+			};
+		}
+	}
+	else if (this->GetType() == TetronimoType::L)
+	{
+		if (this->GetRotation() == Direction::Up)
+		{
+			return {
+				0, 1, 0, 0,
+				0, 1, 0, 0,
+				0, 1, 1, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if (this->GetRotation() == Direction::Right)
+		{
+			return {
+				0, 0, 0, 0,
+				1, 1, 1, 0,
+				1, 0, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if (this->GetRotation() == Direction::Down)
+		{
+			return {
+				1, 1, 0, 0,
+				0, 1, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if (this->GetRotation() == Direction::Left)
+		{
+			return {
+				0, 0, 1, 0,
+				1, 1, 1, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+	}
+	else if (this->GetType() == TetronimoType::S)
+	{
+		if ((this->GetRotation() == Direction::Up) || (this->GetRotation() == Direction::Down))
+		{
+			return {
+				0, 0, 0, 0,
+				0, 1, 1, 0,
+				1, 1, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if ((this->GetRotation() == Direction::Right) || (this->GetRotation() == Direction::Left))
+		{
+			return {
+				1, 0, 0, 0,
+				1, 1, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+	}
+	else if (this->GetType() == TetronimoType::Z)
+	{
+		if ((this->GetRotation() == Direction::Up) || (this->GetRotation() == Direction::Down))
+		{
+			return {
+				0, 0, 0, 0,
+				1, 1, 0, 0,
+				0, 1, 1, 0,
+				0, 0, 0, 0
+			};
+		}
+		else if ((this->GetRotation() == Direction::Right) || (this->GetRotation() == Direction::Left))
+		{
+			return {
+				0, 1, 0, 0,
+				1, 1, 0, 0,
+				1, 0, 0, 0,
+				0, 0, 0, 0
+			};
+		}
+	}
+
+	return {
+		1, 0, 1, 0,
+		0, 1, 0, 1,
+		1, 0, 1, 0,
+		0, 1, 0, 1
+	}; //error pattern, default (theoretically unreachable) state
 }
 
 void Tetronimo::Draw() const
