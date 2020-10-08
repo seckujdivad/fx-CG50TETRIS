@@ -29,7 +29,7 @@ int main()
 			tetronimo->Erase();
 			delete tetronimo;
 
-			tetronimo = new Tetronimo(3, 3, &board, TileType::Blue, GetTetronimoType());
+			tetronimo = new Tetronimo(3, 3, &board, static_cast<TileType>(RTC_rand(3) + 1), GetTetronimoType());
 		}
 	}
  
