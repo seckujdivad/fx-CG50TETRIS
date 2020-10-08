@@ -348,14 +348,12 @@ constexpr bool QueryLayout(TetronimoLayout layout, int x, int y)
 
 TetronimoType GetTetronimoType()
 {
-	return TetronimoType::Z; //currently running into linker problems with sys_rand and rand from stdlib.h, this is a temporary solution
-	//return static_cast<TetronimoType>(sys_rand() % 7);
+	return static_cast<TetronimoType>(RTC_rand(7));
 }
 
 Direction GetDirection()
 {
-	return Direction::Up; //see GetTetronimoType()
-	//return static_cast<Direction>(sys_rand() % 4);
+	return static_cast<Direction>(RTC_rand(4));
 }
 
 TileType Tetronimo::GetTileType() const
