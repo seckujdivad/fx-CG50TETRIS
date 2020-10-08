@@ -18,5 +18,10 @@
                 "isDefault": true
             }
         }
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "py clean.py"
+        }
     ]
 }
