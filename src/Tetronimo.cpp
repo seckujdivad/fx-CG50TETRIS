@@ -387,3 +387,8 @@ void Translate(Direction direction, int& x, int& y)
 			break;
 	}
 }
+
+void Tetronimo::Erase() const
+{
+	this->Draw(this->GetX(), this->GetY(), this->GetRotation(), this->m_blank_tile_type);
+}

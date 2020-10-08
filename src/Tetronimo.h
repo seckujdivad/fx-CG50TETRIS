@@ -73,4 +73,6 @@ public:
 	void JumpToPosition(int x, int y);
 	int GetX() const;
 	int GetY() const;
+
+	void Erase() const;
 };
