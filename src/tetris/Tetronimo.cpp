@@ -1,6 +1,6 @@
 #include "Tetronimo.h"
 
-#include "utilities.h"
+#include "../utilities.h"
 
 #include "Board.h"
 
