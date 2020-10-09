@@ -3,8 +3,8 @@
         {
             "name": "fx-CG50",
             "includePath": [
-                "C:/PrizmSDK-win-0.5/include/**",
-                "${workspaceFolder}/src/**"
+                "C:/PrizmSDK-win-0.5/include/",
+                "${workspaceFolder}/src/"
             ],
             "defines": [],
             "windowsSdkVersion": "10.0.18362.0",
