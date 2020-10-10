@@ -7,3 +7,5 @@ enum class TileType
 	Green,
 	Blue
 };
+
+TileType GetTileType();
