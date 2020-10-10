@@ -2,8 +2,13 @@
 
 #include "Page.h"
 
+#include "../tetris/Board.h"
+
 class MenuPage : public Page
 {
+private:
+	Board* m_board;
+
 public:
 	MenuPage(PageManager* page_manager);
 
