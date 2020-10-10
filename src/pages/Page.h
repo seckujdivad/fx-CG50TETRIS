@@ -18,6 +18,7 @@ protected:
 
 public:
 	Page(PageManager* page_manager);
+	//there is no need for a virtual destructor system since pages will never be deleted (the program never exits)
 
 	//non-virtual methods
 
