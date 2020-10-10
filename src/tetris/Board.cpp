@@ -1,7 +1,8 @@
 #include "Board.h"
 
 #include <fxcg/display.h>
-#include <fxcg/heap.h>
+
+#include "../utilities.h"
 
 Board::Board(int board_x, int board_y, int tile_x, int tile_y, int board_start_x, int board_start_y, int border_width) :
 	m_board_x(board_x),
@@ -103,9 +104,9 @@ void Board::DrawTile(int x, int y, bool copy_vram) const
 			break;
 	}
 
-	for (int draw_y = start_y; draw_y < end_y; draw_y++)
+	for (int draw_y = max(start_y, 0); draw_y < min(end_y, LCD_HEIGHT_PX); draw_y++)
 	{
-		for (int draw_x = start_x; draw_x < end_x; draw_x++)
+		for (int draw_x = max(start_x, 0); draw_x < min(end_x, LCD_WIDTH_PX); draw_x++)
 		{
 			color_t colour;
 			if (

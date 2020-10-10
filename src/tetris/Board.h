@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../utilities.h"
 #include "TileType.h"
 
 class Board
