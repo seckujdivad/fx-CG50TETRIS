@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 
-#define nullptr (void*)0
+//#define nullptr 0
 
 void* operator new(size_t size);
 void* operator new[](size_t size);
