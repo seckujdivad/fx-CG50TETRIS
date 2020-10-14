@@ -32,6 +32,8 @@ void MenuPage::FocusGained(PageType previous_page)
 	this->m_board->DrawAll();
 
 	PrintXY(9, 3, "  TETRIS", TEXT_MODE_TRANSPARENT_BACKGROUND, TEXT_COLOR_WHITE);
+
+	PrintXY(1, 6, "  1: Play", TEXT_MODE_TRANSPARENT_BACKGROUND, TEXT_COLOR_WHITE);
 }
 
 void MenuPage::FocusLost(PageType new_page)
