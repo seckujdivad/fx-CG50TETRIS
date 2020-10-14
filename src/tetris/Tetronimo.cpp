@@ -323,13 +323,24 @@ bool Tetronimo::TestPosition(int x, int y, Direction rotation) const
 		int x_diff = x - this->GetX();
 		int y_diff = y - this->GetY();
 
+		int max_board_x = this->m_target->GetTileMaxX();
+		int max_board_y = this->m_target->GetTileMaxY();
+
 		for (int current_x = 0; current_x < 4; current_x++)
 		{
 			for (int current_y = 0; current_y < 4; current_y++)
 			{
 				if (QueryLayout(new_layout, current_x, current_y) && !QueryLayout(old_layout, current_x + x_diff, current_y + y_diff))
 				{
-					if (this->m_target->GetTile(x + current_x, y + current_y) != this->m_blank_tile_type)
+					int query_x = x + current_x;
+					int query_y = y + current_y;
+
+					if ((query_x < 0) || (query_x >= max_board_x) || (query_y < 0) || (query_y >= max_board_y))
+					{
+						return false;
+					}
+
+					if (this->m_target->GetTile(query_x, query_y) != this->m_blank_tile_type)
 					{
 						return false;
 					}
