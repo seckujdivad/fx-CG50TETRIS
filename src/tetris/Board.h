@@ -33,4 +33,7 @@ public:
 	
 	void SetIncrementalDraw(bool enable);
 	bool IncrementalDrawEnabled() const;
+
+	int GetTileMaxX() const; //maximum x value allowed for SetTile
+	int GetTileMaxY() const; //maximum y value allowed for SetTile
 };

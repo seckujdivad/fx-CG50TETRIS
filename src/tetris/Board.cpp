@@ -142,3 +142,13 @@ bool Board::IncrementalDrawEnabled() const
 {
 	return this->m_incremental_draw;
 }
+
+int Board::GetTileMaxX() const
+{
+	return this->m_board_x;
+}
+
+int Board::GetTileMaxY() const
+{
+	this->m_board_y;
+}
