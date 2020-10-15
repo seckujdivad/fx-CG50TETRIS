@@ -150,5 +150,5 @@ int Board::GetTileMaxX() const
 
 int Board::GetTileMaxY() const
 {
-	this->m_board_y;
+	return this->m_board_y;
 }
